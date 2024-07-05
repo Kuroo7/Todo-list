@@ -15,6 +15,6 @@ The website allow users to change the status of a task between "To Do" and "Done
 first clone the repository
 
 # Step 1: npm install
-# step 2: nmp run dev
+# step 2: npm run dev
 
 The website will be open on http://localhost:5173/
