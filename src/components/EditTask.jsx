@@ -74,7 +74,7 @@ console.log(modal);
                   onChange={handleCheckboxChange}
                 />
               </div>
-              <p className="mb-0 ms-1">Task is {isChecked ? 'Done' : 'To Do'}.</p>
+              <p className="mb-0 ms-1">Task is Done</p>
             </div>
           </form>
         </ModalBody>

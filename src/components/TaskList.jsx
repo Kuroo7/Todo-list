@@ -46,9 +46,9 @@ const TaskList = () => {
         <button className="btn btn-primary mt-2 " onClick={()=>setModal(true)} >Create Task</button>
     </div>
     
-    <div className="task-container justify-content-center align-items-center ">
+    <div className="task-container align-items-center ">
                 {taskList.length <1 ? (
-                     <div className=" alert alert-info py-3 text-center" >
+                     <div className=" alert alert-info py-3 text-center" style={{"width":"100%"}} >
                      No tasks to show. Create one above!
                  </div>
                 ) : (
