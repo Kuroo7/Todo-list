@@ -45,9 +45,24 @@ const TaskList = () => {
         <h1>Todo List</h1>
         <button className="btn btn-primary mt-2 " onClick={()=>setModal(true)} >Create Task</button>
     </div>
-    <div className="task-container" >
-        {taskList.map((obj,index)=><TaskItem key={index} taskObj={obj} index={index} deleteTask={deleteTask} updateListArray={updateListArray}/>)}
-    </div>
+    
+    <div className="task-container justify-content-center align-items-center ">
+                {taskList.length <1 ? (
+                     <div className=" alert alert-info py-3 text-center" >
+                     No tasks to show. Create one above!
+                 </div>
+                ) : (
+                    taskList.map((obj, index) => (
+                        <TaskItem
+                            key={index}
+                            taskObj={obj}
+                            index={index}
+                            deleteTask={deleteTask}
+                            updateListArray={updateListArray}
+                        />
+                    ))
+                )}
+            </div>
     <TaskForm toggle={toggle} modal={modal} save={saveTask}  />
     
     </>

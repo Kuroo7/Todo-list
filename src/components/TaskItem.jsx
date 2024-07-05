@@ -45,12 +45,12 @@ const TaskItem = ({taskObj, index, deleteTask, updateListArray}) => {
     }
 
     return (
-        <div className = "card-wrapper mr-5">
-            <div className = "card-top" style={{"background-color": colors[index%5].primaryColor}}></div>
+        <div className = "card-wrapper mr-5 mb-5">
+            <div className = "card-top" style={{"backgroundColor": colors[index%5].primaryColor}}></div>
             <div className = "task-holder">
-                <span className = "card-header" style={{"background-color": colors[index%5].secondaryColor, "border-radius": "10px"}}>{taskObj.Name}</span>
-                <span className = "card-header" style={{"background-color": colors[index%5].secondaryColor, "border-radius": "10px"}}>Status : {(taskObj.status)?"Done":"To Do"}</span>
-                <p className = "mt-3">{taskObj.Description}</p>
+                <span className = "card-header" style={{"backgroundColor": colors[index%5].secondaryColor, "borderRadius": "10px"}}> <b>Task: </b>{taskObj.Name}</span>
+                <span className = "card-header" style={{"backgroundColor": colors[index%5].secondaryColor, "borderRadius": "10px"}}> <b> Status: </b>{(taskObj.status)?"Done":"To Do"}</span>
+                <p className = "mt-3" style={{ maxHeight: "100px", overflow: "hidden", textOverflow: "ellipsis" }} >{taskObj.Description}</p>
 
                 <div style={{"position": "absolute", "right" : "20px", "bottom" : "20px"}}>
                     <i className = "far fa-edit" style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer","margin-right":"15px"}} onClick = {() => setModal(true)}></i>
