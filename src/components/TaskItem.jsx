@@ -4,6 +4,7 @@ import EditTask from './EditTask'
 
 
 const TaskItem = ({taskObj, index, deleteTask, updateListArray}) => {
+
     const [modal, setModal] = useState(false);
 
     const colors = [
@@ -35,11 +36,12 @@ const TaskItem = ({taskObj, index, deleteTask, updateListArray}) => {
 
     const updateTask = (obj) => {
         updateListArray(obj, index)
+        setModal(false)
     }
 
     const handleDelete = () => {
         deleteTask(index)
-        window.location.reload();
+       
     }
 
     return (

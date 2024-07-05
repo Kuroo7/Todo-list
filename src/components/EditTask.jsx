@@ -6,6 +6,9 @@ import {Button,Modal,ModalHeader,ModalBody,ModalFooter} from 'reactstrap'
 
 
 const EditTask = ({modal,toggle ,updateTask,taskObj }) => {
+
+console.log(modal);
+
   const [taskName,setTaskName] = useState("");
   const [description,setDescription] = useState("");
   const [isChecked,setIsChecked] = useState(false);
@@ -44,6 +47,7 @@ const EditTask = ({modal,toggle ,updateTask,taskObj }) => {
       "status":isChecked
     }
     updateTask(tempObj)
+    
 
   }
 

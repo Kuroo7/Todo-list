@@ -19,26 +19,24 @@ const TaskList = () => {
     const toggle = () => setModal(!modal);
 
     const saveTask=(taskObj)=>{
-        let tempList =taskList;
-        tempList.push(taskObj);
-        localStorage.setItem("taskList",JSON.stringify(tempList))
+        const updatedTaskList = [...taskList, taskObj];
+        localStorage.setItem("taskList", JSON.stringify(updatedTaskList));
+        setTaskList(updatedTaskList);
         setModal(false);
-        setTaskList(tempList);
     }
     
     const deleteTask=(index)=>{
-        let tempList=taskList;
-        tempList.splice(index,1)
-        localStorage.setItem("taskList",JSON.stringify(tempList)) 
-        setTaskList(tempList)
+        const updatedTaskList = [...taskList];
+        updatedTaskList.splice(index, 1);
+        setTaskList(updatedTaskList);
+        localStorage.setItem("taskList", JSON.stringify(updatedTaskList));
         
     }
     const updateListArray=(obj,index)=>{
-        let tempList =taskList
-        tempList[index]=obj;
-        localStorage.setItem("taskList",JSON.stringify(tempList)) 
-        setTaskList(tempList)
-        window.location.reload();
+        const updatedTaskList = taskList.map((task, i) => (i === index ? obj : task));
+        setTaskList(updatedTaskList);
+        localStorage.setItem("taskList", JSON.stringify(updatedTaskList));
+    
     }
 
   return (
@@ -51,6 +49,7 @@ const TaskList = () => {
         {taskList.map((obj,index)=><TaskItem key={index} taskObj={obj} index={index} deleteTask={deleteTask} updateListArray={updateListArray}/>)}
     </div>
     <TaskForm toggle={toggle} modal={modal} save={saveTask}  />
+    
     </>
   )
 }
